@@ -1,0 +1,189 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  --black: hsl(240, 6%, 13%); /*declaração de variavel --nome*/
+  --grey: hsl(240, 9%, 89%);
+
+  height: 100%;
+  font-family: "Roboto", sans-serif;
+  --webkit-font-smoothing: antialiased;
+}
+
+body {
+  display: grid;
+  place-items: center;
+  height: 100vh;
+  width: 100vw;
+}
+
+main {
+  background: url(images/background.svg) no-repeat center/cover;
+  width: 100vw; /* vw = viewport width */
+  min-height: 812px;
+  height: 100vh; /* vh = viewport height */
+}
+
+.container {
+  max-width: 250px;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+
+  color: var(--grey);
+}
+
+.avatar {
+  width: 10rem; /*1 rem = 16px*/
+  margin: 11.5rem auto 0;
+  /*margin: 0 0 0 0; /*top right bottom left*/
+  position: relative;
+}
+
+.avatar span {
+  position: absolute;
+  top: -15px;
+  z-index: 1; /*eixo Z de profundidade*/
+}
+
+.avatar > img {
+  /* ">" = significa que vai pegar somente a primeira tag img / o primeiro nivel*/
+  width: 10rem;
+  height: 11.5rem;
+  object-fit: cover;
+  /*deixar a imagem como hexagono*/
+  clip-path: polygon(50% 0, 100% 25%, 100% 75%, 50% 100%, 0 75%, 0 25%);
+}
+
+h1 {
+  font-size: 1.5rem;
+  margin-top: 1.5rem;
+  font-weight: 700;
+}
+
+a {
+  color: var(--grey);
+  text-decoration: none;
+  display: flex;
+  gap: 0.75rem;
+  justify-content: center;
+  align-items: center;
+  margin-top: 0.25rem;
+}
+
+a:hover {
+  filter: brightness(1.5);
+}
+
+p {
+  margin-top: 2rem;
+  font-weight: 400;
+  font-size: 0.875rem;
+}
+
+ul {
+  margin-top: 4rem;
+  list-style: none; /*remover as marcações da lista*/
+  padding: 0;
+  display: flex; /*essa propriedade deixa a lista na horizontal*/
+  gap: 0.5rem; /*espaço entre os icones*/
+  justify-content: center;
+}
+
+/* estilos versão tablet */
+@media (min-width: 660px) {
+  body {
+    background: rgb(18, 18, 20);
+  }
+
+  body .degrade2 {
+    height: 1118px;
+    width: 1118px;
+    top: -696px;
+    left: 0;
+
+    background: radial-gradient(
+      50% 50% at 50% 50%,
+      #ff3d6e -200%,
+      rgba(18, 18, 20, 0) 100%
+    );
+    position: fixed;
+  }
+
+  body .degrade1 {
+    height: 1118px;
+    width: 1118px;
+    top: -696px;
+    right: 0;
+
+    background: radial-gradient(
+      50% 50% at 50% 50%,
+      #ffc323 -200%,
+      rgba(18, 18, 20, 0) 100%
+    );
+    position: fixed;
+  }
+
+  main {
+    top: 140px;
+    height: 540px;
+    width: 358px;
+
+    box-shadow: 0px 1px 5px silver;
+    border-radius: 0.5rem;
+
+    opacity: 0.95;
+    position: absolute;
+
+    transform-style: preserve-3d;
+  }
+}
+
+/*Animações*/
+
+/*selo girando*/
+@keyframes loading {
+  0% {
+    transform: rotate(0);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.animation {
+  animation: loading 15s linear infinite;
+}
+
+.social-btn {
+  position: relative;
+  border-radius: 2.25rem;
+  width: 50px;
+  top: 0;
+  transition: all ease 0.3s;
+}
+.social-btn:hover {
+  border-radius: 50%;
+  top: -8px;
+}
+
+/* Social buttons shadow */
+.youtube:hover {
+  box-shadow: 0rem 5px 15px rgba(255, 0, 0, 0.5);
+}
+
+.instagram:hover {
+  box-shadow: 0rem 5px 15px rgba(247, 119, 55, 0.5);
+}
+
+.facebook:hover {
+  box-shadow: 0rem 5px 15px rgba(0, 172, 238, 0.5);
+}
+
+.linkedin:hover {
+  box-shadow: 0rem 5px 15px rgba(40, 103, 178, 0.5);
+}
